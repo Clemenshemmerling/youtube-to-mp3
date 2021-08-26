@@ -29,7 +29,16 @@ export class HomeComponent implements OnInit {
         'x-api-key': 'OLR7QKp2np9ImJ0RVnE5K5fp2G1AzxY4CAHjCbt3',
       };
 
-      const code = this.URL.replace('https://www.youtube.com/watch?v=', '');
+      let code;
+
+      if (this.URL.includes('youtube.com')) {
+        code = this.URL.replace('https://www.youtube.com/watch?v=', '');
+      }
+
+      if (this.URL.includes('youtu.be')) {
+        code = this.URL.replace('https://youtu.be/', '');
+      }
+
       this.http
         .get(
           `https://clemensk.korconnect.io/youtube-music/dl?id=${code}`,
