@@ -1,0 +1,32 @@
+<mat-card>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>PASTE THE YOUTUBE LINK HERE</mat-label>
+      <input matInput placeholder="URL" name="URL" [(ngModel)]="URL" />
+    </mat-form-field>
+  </form>
+  <div class="example-button-container">
+    <button mat-fab color="primary" (click)="createLink()">
+      <mat-icon>library_music</mat-icon>
+    </button>
+  </div>
+</mat-card>
+<div class="container">
+  <div class="middle" *ngIf="loader">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+    <div class="bar bar4"></div>
+    <div class="bar bar5"></div>
+    <div class="bar bar6"></div>
+    <div class="bar bar7"></div>
+    <div class="bar bar8"></div>
+  </div>
+  <div class="info" *ngIf="info">
+    <h4>{{info.title}}</h4>
+    <a mat-raised-button href="{{info.link}}" color="warn">
+      Download
+      <mat-icon>file_download</mat-icon>
+    </a>
+  </div>
+</div>
